@@ -14,6 +14,7 @@
 		EE63120A1E94E5EF00062DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE6312091E94E5EF00062DB6 /* Assets.xcassets */; };
 		EE63120D1E94E5EF00062DB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE63120B1E94E5EF00062DB6 /* LaunchScreen.storyboard */; };
 		EE6312181E94E5EF00062DB6 /* TTPlayingViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6312171E94E5EF00062DB6 /* TTPlayingViewDemoTests.m */; };
+		EE6312251E94E62F00062DB6 /* TTPlayingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6312241E94E62F00062DB6 /* TTPlayingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		EE6312131E94E5EF00062DB6 /* TTPlayingViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTPlayingViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6312171E94E5EF00062DB6 /* TTPlayingViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPlayingViewDemoTests.m; sourceTree = "<group>"; };
 		EE6312191E94E5EF00062DB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE6312231E94E62F00062DB6 /* TTPlayingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPlayingView.h; sourceTree = "<group>"; };
+		EE6312241E94E62F00062DB6 /* TTPlayingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPlayingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		EE6311FC1E94E5EF00062DB6 /* TTPlayingViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				EE6312221E94E62F00062DB6 /* TTPlayingView */,
 				EE6312001E94E5EF00062DB6 /* AppDelegate.h */,
 				EE6312011E94E5EF00062DB6 /* AppDelegate.m */,
 				EE6312031E94E5EF00062DB6 /* ViewController.h */,
@@ -109,6 +113,15 @@
 				EE6312191E94E5EF00062DB6 /* Info.plist */,
 			);
 			path = TTPlayingViewDemoTests;
+			sourceTree = "<group>";
+		};
+		EE6312221E94E62F00062DB6 /* TTPlayingView */ = {
+			isa = PBXGroup;
+			children = (
+				EE6312231E94E62F00062DB6 /* TTPlayingView.h */,
+				EE6312241E94E62F00062DB6 /* TTPlayingView.m */,
+			);
+			path = TTPlayingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6312051E94E5EF00062DB6 /* ViewController.m in Sources */,
+				EE6312251E94E62F00062DB6 /* TTPlayingView.m in Sources */,
 				EE6312021E94E5EF00062DB6 /* AppDelegate.m in Sources */,
 				EE6311FF1E94E5EF00062DB6 /* main.m in Sources */,
 			);

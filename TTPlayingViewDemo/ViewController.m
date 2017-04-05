@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TTPlayingView/TTPlayingView.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    TTPlayingView *playingView = [[TTPlayingView alloc] initWithFrame:CGRectZero];
+    playingView.backgroundColor = [UIColor redColor];
+    playingView.frame = CGRectMake(100, 300, 40, 40);
+    [self.view addSubview:playingView];
+    [playingView startPlaying];
+    
+//    playingView.playingTimeInterval = 3;
+//    playingView.columnWidth = 7;
+//    playingView.columnColor = [UIColor blueColor];
 }
 
 
