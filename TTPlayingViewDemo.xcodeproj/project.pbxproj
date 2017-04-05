@@ -15,7 +15,7 @@
 		EE63120D1E94E5EF00062DB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE63120B1E94E5EF00062DB6 /* LaunchScreen.storyboard */; };
 		EE6312181E94E5EF00062DB6 /* TTPlayingViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6312171E94E5EF00062DB6 /* TTPlayingViewDemoTests.m */; };
 		EE6312251E94E62F00062DB6 /* TTPlayingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6312241E94E62F00062DB6 /* TTPlayingView.m */; };
-		EE6312271E94F16A00062DB6 /* ttplaying.gif in Resources */ = {isa = PBXBuildFile; fileRef = EE6312261E94F16A00062DB6 /* ttplaying.gif */; };
+		EE6312291E94F45A00062DB6 /* tt1.gif in Resources */ = {isa = PBXBuildFile; fileRef = EE6312281E94F45A00062DB6 /* tt1.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		EE6312191E94E5EF00062DB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE6312231E94E62F00062DB6 /* TTPlayingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPlayingView.h; sourceTree = "<group>"; };
 		EE6312241E94E62F00062DB6 /* TTPlayingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPlayingView.m; sourceTree = "<group>"; };
-		EE6312261E94F16A00062DB6 /* ttplaying.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ttplaying.gif; sourceTree = "<group>"; };
+		EE6312281E94F45A00062DB6 /* tt1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tt1.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 		EE6311FD1E94E5EF00062DB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EE6312261E94F16A00062DB6 /* ttplaying.gif */,
+				EE6312281E94F45A00062DB6 /* tt1.gif */,
 				EE6311FE1E94E5EF00062DB6 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -209,8 +209,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6312291E94F45A00062DB6 /* tt1.gif in Resources */,
 				EE63120D1E94E5EF00062DB6 /* LaunchScreen.storyboard in Resources */,
-				EE6312271E94F16A00062DB6 /* ttplaying.gif in Resources */,
 				EE63120A1E94E5EF00062DB6 /* Assets.xcassets in Resources */,
 				EE6312081E94E5EF00062DB6 /* Main.storyboard in Resources */,
 			);
