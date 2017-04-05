@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TTPlayingView/TTPlayingView.h"
+#import "TTPlayingView.h"
 
 @interface ViewController ()
 
