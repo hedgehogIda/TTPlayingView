@@ -58,7 +58,7 @@ static const int kColumnNumber = 4;
 }
 
 - (void)dealloc {
-    [self stopPlaying];
+    [self tt_stopPlaying];
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
@@ -107,8 +107,8 @@ static const int kColumnNumber = 4;
     }];
 }
 
-- (void)startPlaying {
-    [self stopPlaying];
+- (void)tt_startPlaying {
+    [self tt_stopPlaying];
     NSArray<CALayer *> *sublayers = [self.layer sublayers];
     
     //random values, user custom data.
@@ -121,7 +121,7 @@ static const int kColumnNumber = 4;
     }];
 }
 
-- (void)stopPlaying {
+- (void)tt_stopPlaying {
     NSArray<CALayer *> *sublayers = [self.layer sublayers];
     [sublayers makeObjectsPerformSelector:@selector(removeAnimationForKey:) withObject:@"layer"];
 }

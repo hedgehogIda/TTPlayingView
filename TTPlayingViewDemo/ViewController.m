@@ -23,7 +23,7 @@
     playingView.backgroundColor = [UIColor redColor];
     playingView.frame = CGRectMake(100, 300, 40, 40);
     [self.view addSubview:playingView];
-    [playingView startPlaying];
+    [playingView tt_startPlaying];
     
 //    playingView.playingTimeInterval = 3;
 //    playingView.columnWidth = 7;
