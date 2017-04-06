@@ -4,5 +4,5 @@
 ![img](https://github.com/edisongz/TTPlayingView/blob/master/TTPlayingViewDemo/tt1.gif) 
 
 ### Installation
-    pod 'TTPlayingView', :git => 'https://github.com/edisongz/TTPlayingView.git'
+    pod 'TTPlayingView', :git => 'https://github.com/edisongz/TTPlayingView.git', :tag => '1.0.1'
     
