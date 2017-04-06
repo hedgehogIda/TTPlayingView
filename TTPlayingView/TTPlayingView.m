@@ -15,6 +15,8 @@ static const int kColumnNumber = 4;
 
 @interface TTPlayingView ()
 
+@property (nonatomic, assign) BOOL shouldAnimate;
+
 @end
 
 @implementation TTPlayingView
@@ -60,15 +62,90 @@ static const int kColumnNumber = 4;
     return self;
 }
 
-- (void)dealloc {
-    [self tt_stopPlaying];
+#pragma mark - UIView Method Overrides
+
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    
+    [self updateShouldAnimate];
+    if (self.shouldAnimate) {
+        [self p_resumeLayer];
+    } else {
+        [self p_pauseLayer];
+    }
+}
+
+
+- (void)didMoveToWindow
+{
+    [super didMoveToWindow];
+    
+    [self updateShouldAnimate];
+    if (self.shouldAnimate) {
+        [self p_resumeLayer];
+    } else {
+        [self p_pauseLayer];
+    }
+}
+
+- (void)setAlpha:(CGFloat)alpha
+{
+    [super setAlpha:alpha];
+    
+    [self updateShouldAnimate];
+    if (self.shouldAnimate) {
+        [self p_resumeLayer];
+    } else {
+        [self p_pauseLayer];
+    }
+}
+
+- (void)setHidden:(BOOL)hidden
+{
+    [super setHidden:hidden];
+    
+    [self updateShouldAnimate];
+    if (self.shouldAnimate) {
+        [self p_resumeLayer];
+    } else {
+        [self p_pauseLayer];
+    }
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
     return CGSizeMake(40.0f, 40.0f);
 }
 
-//重新设置动画时间
+- (void)dealloc {
+    [self tt_stopPlaying];
+}
+
+#pragma mark - control animation
+
+- (void)updateShouldAnimate
+{
+    //from https://github.com/Flipboard/FLAnimatedImage/blob/master/FLAnimatedImage/FLAnimatedImageView.m
+    BOOL isVisible = self.window && self.superview && ![self isHidden] && self.alpha > 0.0;
+    self.shouldAnimate = isVisible;
+}
+
+- (void)p_pauseLayer {
+    CFTimeInterval pausedTime = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    self.layer.speed = 0.0;
+    self.layer.timeOffset = pausedTime;
+}
+
+- (void)p_resumeLayer {
+    CFTimeInterval pausedTime = [self.layer timeOffset];
+    self.layer.speed = 1.0;
+    self.layer.timeOffset = 0.0;
+    self.layer.beginTime = 0.0;
+    CFTimeInterval timeSincePause = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+    self.layer.beginTime = timeSincePause;
+}
+
+//reset animation interval
 - (void)setPlayingTimeInterval:(NSTimeInterval)playingTimeInterval {
     _playingTimeInterval = playingTimeInterval;
     
@@ -84,7 +161,7 @@ static const int kColumnNumber = 4;
     }];
 }
 
-//重新设置column颜色
+//rest column view's color
 - (void)setColumnColor:(UIColor *)columnColor {
     _columnColor = columnColor;
     NSArray<CALayer *> *sublayers = [self.layer sublayers];
@@ -97,7 +174,7 @@ static const int kColumnNumber = 4;
     }];
 }
 
-//重新柱状图宽度
+//rest column view's width
 - (void)setColumnWidth:(float)columnWidth {
     _columnWidth = columnWidth;
     NSArray<CALayer *> *sublayers = [self.layer sublayers];
@@ -129,6 +206,10 @@ static const int kColumnNumber = 4;
     [sublayers makeObjectsPerformSelector:@selector(removeAnimationForKey:) withObject:@"layer"];
 }
 
+#pragma mark - path & animations
+/**
+ *  column view path
+ */
 - (CGPathRef)pathOfColumnWithHeight:(CGFloat)height {
     UIBezierPath *columnPath = [UIBezierPath bezierPath];
     columnPath.lineJoinStyle = kCGLineJoinRound;
@@ -140,6 +221,9 @@ static const int kColumnNumber = 4;
     return columnPath.CGPath;
 }
 
+/**
+ *  strokeEnd animation
+ **/
 - (CAKeyframeAnimation *)columnAnimation:(NSArray *)values {
     CAKeyframeAnimation *frameAnimation = [CAKeyframeAnimation animation];
     frameAnimation.keyPath = @"strokeEnd";

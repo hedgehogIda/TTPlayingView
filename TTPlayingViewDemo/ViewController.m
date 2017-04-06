@@ -28,6 +28,7 @@
 //    playingView.playingTimeInterval = 3;
 //    playingView.columnWidth = 7;
 //    playingView.columnColor = [UIColor blueColor];
+    
 }
 
 
