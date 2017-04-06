@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TTPlayingView : UIView
+@interface TTPlayingView : UIControl
 
 /**
  *  动画间隔

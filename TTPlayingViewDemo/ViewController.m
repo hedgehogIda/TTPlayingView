@@ -28,9 +28,12 @@
 //    playingView.playingTimeInterval = 3;
 //    playingView.columnWidth = 7;
 //    playingView.columnColor = [UIColor blueColor];
-    
+    [playingView addTarget:self action:@selector(tap) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)tap {
+    NSLog(@"tap");
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

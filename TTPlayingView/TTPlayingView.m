@@ -113,6 +113,26 @@ static const int kColumnNumber = 4;
     }
 }
 
+/**
+ *  user custom hover style
+ **/
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    
+    NSArray<CALayer *> *sublayers = [self.layer sublayers];
+    [sublayers enumerateObjectsUsingBlock:^(CALayer * _Nonnull layer, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([layer isKindOfClass:[CAShapeLayer class]]) {
+            CAShapeLayer *shapeLayer = (CAShapeLayer *)layer;
+            
+            if (highlighted) {
+                shapeLayer.strokeColor = [_columnColor colorWithAlphaComponent:0.7f].CGColor;
+            } else {
+                shapeLayer.strokeColor = _columnColor.CGColor;
+            }
+        }
+    }];
+}
+
 - (CGSize)sizeThatFits:(CGSize)size {
     return CGSizeMake(40.0f, 40.0f);
 }
